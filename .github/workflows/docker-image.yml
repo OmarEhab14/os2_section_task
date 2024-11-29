@@ -7,16 +7,14 @@ on:
     branches: [ "master" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-      /* will not download files on machine */
+      # Will not download files on machine
       - name: "before printing the folder contents"
         run: ls
-	/* to download files using library or action اكشن جاهز */
+
+      # To download files using library or pre-built action
       - uses: actions/checkout@v3
 
       - name: "after printing the folder contents"
