@@ -16,7 +16,7 @@ jobs:
       /* will not download files on machine */
       - name: "before printing the folder contents"
         run: ls
-	    /* to download files using library or action اكشن جاهز */
+	/* to download files using library or action اكشن جاهز */
       - uses: actions/checkout@v3
 
       - name: "after printing the folder contents"
