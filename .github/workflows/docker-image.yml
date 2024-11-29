@@ -10,12 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Will not download files on machine
-      - name: "before printing the folder contents"
-        run: ls
-
-      # To download files using library or pre-built action
       - uses: actions/checkout@v3
 
-      - name: "after printing the folder contents"
-        run: ls -a
+      - name: " login to dockerhub"
+        run: docker login --username ${{ secrets.DOCKERHUB_USERNAME}} --password ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: " building docker "
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME}}/java-docker-github-task:latest .
+      - name: " pushing to docker hub "
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME}}/java-docker-github-task:latest
